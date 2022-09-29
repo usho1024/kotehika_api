@@ -24,7 +24,6 @@ module App
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    # 追加
     # Railsアプリのタイムゾーン(default 'UTC')
     # TimeZoneList: http://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html
     config.time_zone = ENV["TZ"]
@@ -37,7 +36,7 @@ module App
 
     # $LOAD_PATHにautoload pathを追加しない(Zeitwerk有効時false推奨)
     config.add_autoload_paths_to_load_path = false
-    
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
