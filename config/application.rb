@@ -24,7 +24,6 @@ module App
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    # 追加
     # Railsアプリのタイムゾーン(default 'UTC')
     # TimeZoneList: http://api.rubyonrails.org/classes/ActiveSupport/TimeZone.html
     config.time_zone = ENV["TZ"]
@@ -37,7 +36,14 @@ module App
 
     # $LOAD_PATHにautoload pathを追加しない(Zeitwerk有効時false推奨)
     config.add_autoload_paths_to_load_path = false
-    
+
+    # Cookieを処理するmeddlewareを追加
+    config.middleware.use ActionDispatch::Cookies
+
+    # Cookieのsamesite属性を変更する(Rails v6.1~, :strict, :lax, :none)
+    config.action_dispatch.cookies_same_site_protection =
+    ENV["COOKIES_SAME_SITE"].to_sym if Rails.env.production?
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
