@@ -5,6 +5,7 @@ RSpec.describe User, type: :model do
   let(:name) { 'たかしょー' }
   let(:email) { 'takasho@gmail.com' }
   let(:password) { '12345678' }
+
   describe '#valid?' do
     subject { user.valid? }
     context 'データが全て入っている場合' do
