@@ -12,7 +12,8 @@ RUN set -x && apt-get update -y -qq && apt-get install -yq nodejs yarn default-m
 
 WORKDIR ${HOME}
 
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
+COPY Gemfile* ./
 RUN bundle install
 COPY . ./
+
+CMD ["rails", "server", "-b", "0.0.0.0"]

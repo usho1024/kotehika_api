@@ -28,3 +28,5 @@
 
 # original
 .DS_Store
+
+.cache
